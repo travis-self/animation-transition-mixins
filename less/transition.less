@@ -1,0 +1,50 @@
+#m-transition() {
+  .property(...) {
+    transition-property: @arguments;
+  }
+  .delay(...) {
+    transition-delay: @arguments;
+  }
+  .duration(...) {
+    transition-duration: @arguments;
+  }
+  .timing(...) {
+    transition-timing-function: @arguments;
+  }
+
+  .generate(
+    @onPsuedo: false;
+    @onSelector: false;
+    @props;
+    @delay: 0s;
+    @duration: 500ms;
+    @timing: ease-in-out;
+    @from;
+    @to;
+  ){
+    #m-transition.property(@props);
+    #m-transition.delay(@delay);
+    #m-transition.duration(@duration);
+    #m-transition.timing(@timing);
+    
+    each(@props, .(@v, @k, @i) {
+      @{v}: extract(@from, @i);
+    })
+  
+    & when not (@onPsuedo = false) {
+      &:@{onPsuedo} {
+        each(@props, .(@v, @k, @i) {
+          @{v}: extract(@to, @i);
+        })
+      }
+    }
+    
+    & when not (@onSelector = false) {
+      @{onSelector} {
+        each(@props, .(@v, @k, @i) {
+          @{v}: extract(@to, @i);
+        })
+      }
+    }
+  }  
+}
