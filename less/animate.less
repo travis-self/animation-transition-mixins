@@ -4,6 +4,7 @@
     @framelist;
     @frameprops
   ){
+    /* HT: https://stackoverflow.com/questions/33033541/add-argument-into-keyframes-property-less */
     @keyframes @name {
       .loop-framelist(@index) when (@index <= length(@framelist)) {
         @framepos: extract(@framelist, @index) * 1%;
