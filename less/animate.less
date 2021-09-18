@@ -1,0 +1,35 @@
+#m-animate() {
+  .keyframes(
+    @name;
+    @framelist;
+    @frameprops
+  ){
+    @keyframes @name {
+      .loop-framelist(@index) when (@index <= length(@framelist)) {
+        @framepos: extract(@framelist, @index) * 1%;
+
+        @{framepos} {
+          @props: extract(@frameprops, @index);
+          @props();
+        }
+
+        .loop-framelist(@index + 1);
+      }
+
+      .loop-framelist(1);
+    }
+  }
+  
+  .shorthand(
+    @duration: 500ms,
+    @easing-function: ease-in-out,
+    @delay: 0s,
+    @iteration-count: 1,
+    @direction: normal,
+    @fill-mode: forwards,
+    @play-state: running,
+    @name
+  ) {
+    animation: @duration @easing-function @delay @iteration-count @direction @fill-mode @play-state @name;
+  }
+}
