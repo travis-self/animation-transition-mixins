@@ -2,7 +2,7 @@
 
 > #m-animate.keyframes(@name; @framelist; @frameprops)
 > 
-> Generates percentage-based keyframes.\
+> Generates percentage-based keyframes.
 > > @param {name} Name of keyframes.\
 > > @param {framelist} Comma-separated percentage values for each keyframe.\
 > > @param {frameprops} Comma-seperated declaration list for each keyframe.
@@ -30,7 +30,7 @@ Outputs
 ---
 > #m-animate.shorthand(@duration, @easing-function, @delay, @iteration-count, @direction, @fill-mode, @play-state, @name)
 > 
-> Accepts a named parameter matching each animation property.\
+> Accepts a named parameter matching each animation property.
 > > @param {duration} default 500ms\
 > > @param {easing-function} default ease-in-out\
 > > @param {delay} default 0s\
@@ -61,7 +61,7 @@ Outputs
 
 > #m-transition.generate(@props, @delay, @duration, @timing, @onPsuedo, @onSelector, @from, @to)
 > 
-> Builds out transition properties and to/from style declarations for each style property passed in.\
+> Builds out transition properties and to/from style declarations for each style property passed in.
 > > @param {props} Comma-separated properties to transition i.e. background, font-size.\
 > > @param {from} Comma-separated default style values for each property i.e. black, 12px.\
 > > @param {to} Comma-separated transitioned style values for each property i.e. white, 18px.\
@@ -69,7 +69,9 @@ Outputs
 > > @param {duration} Comma-separated list of duration values for each property (default 500ms).\
 > > @param {timing} Comma-separated list of timing-function values for each property (default ease-in-out).\
 > > @param {onPsuedo} Value representing a psuedo selector for when the transition will apply i.e. hover, focus (default false).\
-> > @param {onSelector} Escaped string representing a selector for when the transition will apply i.e. ~"&.is-animating" (default false).
+> > @param {onSelector} Escaped string representing a selector for when the transition will apply i.e. ~"&.is-animating" (default false).\
+>
+> Note: for more complex selectors, set the @to argument to false and handle it outside of the mxin.
 
 Examples
 ```
