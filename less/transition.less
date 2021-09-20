@@ -31,7 +31,7 @@
       @{v}: extract(@from, @i);
     })
   
-    & when not (@onPsuedo = false) {
+    & when not (@onPsuedo = false) and not (@to = false) {
       &:@{onPsuedo} {
         each(@props, .(@v, @k, @i) {
           @{v}: extract(@to, @i);
@@ -39,7 +39,7 @@
       }
     }
     
-    & when not (@onSelector = false) {
+    & when not (@onSelector = false) and not (@to = false) {
       @{onSelector} {
         each(@props, .(@v, @k, @i) {
           @{v}: extract(@to, @i);
